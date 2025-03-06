@@ -15,8 +15,9 @@ function App() {
                 <Menu/>
                 <Routes>
                     <Route path={'/'} element={<HomePage/>}/>
-                    <Route path={'blog'} element={<Blog/>}/>
-                    <Route path={'blog/:slug'} element={<BlogPost/>}/>
+                    <Route path={'blog'} element={<Blog/>}>
+                        <Route path={':slug'} element={<BlogPost/>}/>
+                    </Route>
                     <Route path={'profile'} element={<Profile/>}/>
                     <Route path={'*'} element={<NotFound/>}/>
                 </Routes>

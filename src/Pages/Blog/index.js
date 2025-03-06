@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 import {generatePosts} from "../../fake/posts";
 import {useContext, useState} from "react";
 import {BlogContext} from "../../Components/Context";
@@ -21,6 +21,7 @@ const Blog = () => {
                     />
                 ))}
             </div>
+            <Outlet/>
         </>
     )
 }

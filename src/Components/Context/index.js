@@ -21,7 +21,7 @@ const BlogProvider = ({children}) => {
                 console.log('Fetching error blog posts: ', error)
                 setError(error)
                 setIsLoading(false)
-                setBlogPosts(generatePosts(100))
+                setBlogPosts(generatePosts(5))
             }
         }
 
