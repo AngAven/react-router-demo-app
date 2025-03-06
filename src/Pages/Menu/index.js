@@ -1,6 +1,8 @@
 import {Link, NavLink} from "react-router-dom";
+import {useAuth} from "../../Components/Context/auth";
 
 const Menu = () => {
+    const {username} = useAuth()
     return (
         <nav className={'relative mb-15 '}>
             <ul className={'flex justify-between py-2 px-4 fixed top-0 right-0 left-0 bg-gray-100'}>
@@ -37,6 +39,14 @@ routes.push({
 routes.push({
     to: '/profile',
     text: 'Profile'
+})
+routes.push({
+    to: '/login',
+    text: 'Login'
+})
+routes.push({
+    to: '/logout',
+    text: 'Logout'
 })
 
 export {Menu};

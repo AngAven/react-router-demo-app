@@ -6,21 +6,29 @@ import {Profile} from "./Pages/Profile";
 import {Menu} from "./Pages/Menu";
 import {BlogPost} from "./Pages/BlogPost/BlogPost";
 import {BlogProvider} from "./Components/Context";
+import {Login} from "./Pages/Login";
+import {LogOut} from "./Pages/LogOut";
+import {AuthProvider} from "./Components/Context/auth";
 import './App.css';
 
 function App() {
     return (
         <BlogProvider>
             <HashRouter>
-                <Menu/>
-                <Routes>
-                    <Route path={'/'} element={<HomePage/>}/>
-                    <Route path={'blog'} element={<Blog/>}>
-                        <Route path={':slug'} element={<BlogPost/>}/>
-                    </Route>
-                    <Route path={'profile'} element={<Profile/>}/>
-                    <Route path={'*'} element={<NotFound/>}/>
-                </Routes>
+                <AuthProvider>
+                    <Menu/>
+                    <Routes>
+                        <Route path={'/'} element={<HomePage/>}/>
+                        <Route path={'blog'} element={<Blog/>}>
+                            <Route path={':slug'} element={<BlogPost/>}/>
+                        </Route>
+                        <Route path={'login'} element={<Login/>}/>
+                        <Route path={'logout'} element={<LogOut/>}/>
+                        <Route path={'profile'} element={<Profile/>}/>
+                        <Route path={'profile'} element={<Profile/>}/>
+                        <Route path={'*'} element={<NotFound/>}/>
+                    </Routes>
+                </AuthProvider>
             </HashRouter>
         </BlogProvider>
     );
