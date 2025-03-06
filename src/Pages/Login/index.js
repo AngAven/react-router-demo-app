@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {useAuth} from "../../Components/Context/auth";
+import {Navigate, useNavigate} from "react-router-dom";
 
 const Login = () => {
     const [userName, setUserName] = useState('')
@@ -13,6 +14,10 @@ const Login = () => {
     const login = (e) => {
         e.preventDefault()
         loginContext({userName})
+    }
+
+    if (user) {
+        return <Navigate to={'/profile'}/>
     }
 
     return (

@@ -8,7 +8,7 @@ import {BlogPost} from "./Pages/BlogPost/BlogPost";
 import {BlogProvider} from "./Components/Context";
 import {Login} from "./Pages/Login";
 import {LogOut} from "./Pages/LogOut";
-import {AuthProvider} from "./Components/Context/auth";
+import {AuthProvider, AutRoute} from "./Components/Context/auth";
 import './App.css';
 
 function App() {
@@ -23,8 +23,18 @@ function App() {
                             <Route path={':slug'} element={<BlogPost/>}/>
                         </Route>
                         <Route path={'login'} element={<Login/>}/>
-                        <Route path={'logout'} element={<LogOut/>}/>
-                        <Route path={'profile'} element={<Profile/>}/>
+                        <Route path={'logout'}
+                               element={
+                                   <AutRoute>
+                                       <LogOut/>
+                                   </AutRoute>
+                               }/>
+                        <Route path={'profile'}
+                               element={
+                                   <AutRoute>
+                                       <Profile/>
+                                   </AutRoute>
+                               }/>
                         <Route path={'profile'} element={<Profile/>}/>
                         <Route path={'*'} element={<NotFound/>}/>
                     </Routes>
