@@ -3,21 +3,26 @@ import {HomePage} from "./Pages/HomePage";
 import {Blog} from "./Pages/Blog";
 import {NotFound} from "./Pages/NotFound/index";
 import {Profile} from "./Pages/Profile";
-import './App.css';
 import {Menu} from "./Pages/Menu";
+import {BlogPost} from "./Pages/BlogPost/BlogPost";
+import {BlogProvider} from "./Components/Context";
+import './App.css';
 
 function App() {
-  return (
-    <HashRouter>
-      <Menu/>
-      <Routes>
-        <Route path={'/'} element={<HomePage/>} />
-        <Route path={'blog'} element={<Blog/>} />
-        <Route path={'/profile'} element={<Profile/>} />
-        <Route path={'*'} element={<NotFound/>} />
-      </Routes>
-    </HashRouter>
-  );
+    return (
+        <BlogProvider>
+            <HashRouter>
+                <Menu/>
+                <Routes>
+                    <Route path={'/'} element={<HomePage/>}/>
+                    <Route path={'blog'} element={<Blog/>}/>
+                    <Route path={'blog/:slug'} element={<BlogPost/>}/>
+                    <Route path={'profile'} element={<Profile/>}/>
+                    <Route path={'*'} element={<NotFound/>}/>
+                </Routes>
+            </HashRouter>
+        </BlogProvider>
+    );
 }
 
 export default App;

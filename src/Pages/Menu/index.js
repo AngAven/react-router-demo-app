@@ -2,50 +2,17 @@ import {Link, NavLink} from "react-router-dom";
 
 const Menu = () => {
     return (
-        <nav>
-            <ul>
-                {/*<li>*/}
-                {/*    <Link to={'/'}>Home</Link>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*    <Link to={'/blog'}>Blog</Link>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*    <Link to={'/profile'}>Profile</Link>*/}
-                {/*</li>*/}
-
-                {/*<li>*/}
-                {/*    <NavLink*/}
-                {/*        // className={({isActive}) => 'active'}*/}
-                {/*        style={({isActive})=> (*/}
-                {/*            {color: isActive ? 'red' : 'blue'}*/}
-                {/*        )}*/}
-                {/*        to={'/'}*/}
-                {/*    >Home</NavLink>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*    <NavLink to={'/blog'}>Blog</NavLink>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*    <NavLink to={'/profile'}>Profile</NavLink>*/}
-                {/*</li>*/}
-
+        <nav className={'relative mb-15 '}>
+            <ul className={'flex justify-between py-2 px-4 fixed top-0 right-0 left-0 bg-gray-100'}>
                 {routes.map((route) => (
                     <li key={route.text}>
                         <NavLink
                             style={({isActive}) => ({
-                                    color: isActive ? 'red' : 'blue'
+                                color: isActive ? 'red' : 'blue'
                             })}
-                            // style={({ isActive, isPending, isTransitioning }) => {
-                            //     return {
-                            //         fontWeight: isActive ? "bold" : "",
-                            //         color: isPending ? "red" : "black",
-                            //         viewTransitionName: isTransitioning ? "slide" : "",
-                            //     };
-                            // }}
                             to={route.to}
                         >
-                            {({ isActive, isPending, isTransitioning }) => (
+                            {({isActive, isPending, isTransitioning}) => (
                                 <span className={isActive ? "active" : "old"}>
                                     {route.text}
                                 </span>
