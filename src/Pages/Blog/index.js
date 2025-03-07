@@ -9,6 +9,7 @@ const Blog = () => {
     return (
         <>
             <h1 className={'font-extrabold text-center my-4'}>Blog Entries</h1>
+            <Outlet/>
             <div className={'flex flex-col items-center gap-y-5'}>
                 {blogPosts.map((post) => (
                     <BlogLink
@@ -21,7 +22,6 @@ const Blog = () => {
                     />
                 ))}
             </div>
-            <Outlet/>
         </>
     )
 }

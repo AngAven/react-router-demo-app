@@ -6,14 +6,9 @@ const Login = () => {
     const [userName, setUserName] = useState('')
     const {user, login: loginContext, logout} = useAuth()
 
-    const changeValue = (e) => {
-        const value = e.target.value
-        setUserName(value)
-    }
-
     const login = (e) => {
         e.preventDefault()
-        loginContext({userName})
+        loginContext(userName)
     }
 
     if (user) {
@@ -28,7 +23,7 @@ const Login = () => {
                 <input
                     id={'username'}
                     name={'username'}
-                    onChange={(e) => changeValue(e)}
+                    onChange={(e) => setUserName(e.target.value)}
                     type="text"
                     value={userName}
                     className={'border rounded'}

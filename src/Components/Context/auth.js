@@ -2,13 +2,21 @@ import {useContext, createContext, useState} from "react";
 import {Navigate, useNavigate} from "react-router-dom";
 
 const AuthContext = createContext(null)
+const adminList = ['iris', 'master', 'angel']
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const navigate = useNavigate()
 
     const login = (username) => {
-        setUser(username)
+        const isAdmin = adminList.find(admin => admin === username)
+
+        if (isAdmin) {
+            setUser({username, isAdmin})
+        } else {
+            setUser({username})
+        }
+
         navigate('/profile')
     }
 
@@ -19,7 +27,7 @@ const AuthProvider = ({children}) => {
 
     const auth = {user, login, logout}
 
-    return(
+    return (
         <AuthContext.Provider value={
             auth
         }>

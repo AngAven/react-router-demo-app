@@ -2,12 +2,14 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useContext} from "react";
 import {BlogContext} from "../../Components/Context";
 import {ArrowUturnLeftIcon} from '@heroicons/react/16/solid'
+import {useAuth} from "../../Components/Context/auth";
 
-const BlogPost = () => {
+const Index = () => {
     const {blogPosts} = useContext(BlogContext)
     const params = useParams()
     const blogPost = blogPosts.find(post => post.slug === params.slug)
     const navigate = useNavigate()
+    const {user} = useAuth()
 
     const returnToBlog = () => {
         navigate('/blog')
@@ -29,8 +31,12 @@ const BlogPost = () => {
             <p className={'font-thin'}>Author: {blogPost.author}</p>
             <p>{blogPost.content}</p>
             </div>
+
+            {user?.isAdmin && (
+                <button className={'border '}>Delete blog</button>
+            )}
         </div>
     );
 };
 
-export {BlogPost};
+export {Index};
