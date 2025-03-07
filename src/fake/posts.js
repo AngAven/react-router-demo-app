@@ -6,7 +6,8 @@ const generatePost = () => {
         title: faker.book.title(),
         slug: faker.lorem.slug(),
         content: faker.lorem.text(),
-        author: faker.book.author(),
+        // author: faker.book.author(),
+        author: 'angel',
     }
 }
 

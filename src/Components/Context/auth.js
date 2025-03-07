@@ -2,7 +2,7 @@ import {useContext, createContext, useState} from "react";
 import {Navigate, useNavigate} from "react-router-dom";
 
 const AuthContext = createContext(null)
-const adminList = ['iris', 'master', 'angel']
+const adminList = ['iris', 'master', 'angel1']
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)

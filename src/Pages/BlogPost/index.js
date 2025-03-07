@@ -10,6 +10,7 @@ const Index = () => {
     const blogPost = blogPosts.find(post => post.slug === params.slug)
     const navigate = useNavigate()
     const {user} = useAuth()
+    const canDelete = user?.isAdmin || blogPost?.author === user?.username
 
     const returnToBlog = () => {
         navigate('/blog')
@@ -32,7 +33,7 @@ const Index = () => {
             <p>{blogPost.content}</p>
             </div>
 
-            {user?.isAdmin && (
+            {canDelete && (
                 <button className={'border '}>Delete blog</button>
             )}
         </div>
